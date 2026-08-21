@@ -1,0 +1,78 @@
+name: Feature
+description: Epic を構成する、単独でデモ可能な縦断スライス
+title: "[Feature] "
+labels: ["feature"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        > 通常は `/aidd-new-epic` が作成し、`/aidd-epic-design` が設計情報を更新します。
+
+  - type: textarea
+    id: overview
+    attributes:
+      label: Overview
+      description: この Feature が何をするか（ユーザー視点で 1〜3 行）
+    validations:
+      required: true
+
+  - type: textarea
+    id: stories
+    attributes:
+      label: Stories / Acceptance Criteria
+      description: |
+        `docs/spec/` に定義した Story と AC-ID を列挙する。Story は Issue 化しない。
+      placeholder: |
+        - S1: 開発者が入力待ちセッションを識別できる
+          - AC-F42-01
+          - AC-F42-02
+    validations:
+      required: true
+
+  - type: textarea
+    id: related_docs
+    attributes:
+      label: Related Docs
+      description: |
+        関連ドキュメントのリポジトリ相対パスを列挙する。
+        フォーマット: `- 種別: \`パス\``
+      placeholder: |
+        - Spec: `docs/spec/session-monitoring.md`
+        - Business Context: `docs/business-context/session-monitoring.md`
+        - Design: `docs/features/42-session-monitoring/design.md`
+        - API: `specs/openapi.yaml`
+    validations:
+      required: false
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: 実装前に完了している必要がある Feature / Issue
+      placeholder: |
+        - Requires: #12 ユーザーエンティティ基盤（Feature）
+    validations:
+      required: false
+
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks
+      description: 技術・依存・スコープ上のリスクと対応策
+      placeholder: |
+        | 種別 | 具体的内容 | 対応策 |
+        |------|----------|--------|
+        | 技術 | 状態取得方法が未確定 | 設計前に公式仕様を調査する |
+    validations:
+      required: false
+
+  - type: textarea
+    id: done_when
+    attributes:
+      label: Done When
+      value: |
+        - [ ] `docs/features/[N]-[slug]/design.md` が存在する
+        - [ ] `specs/` への必要な差分追記が完了している
+        - [ ] 全 AC に Outside-In テストが実装されグリーンである
+    validations:
+      required: true
