@@ -12,7 +12,7 @@ MANDATORY: セッション開始時に `aidd-framework/FRAMEWORK.md` を必ず�
 
 ## プロジェクト概要
 
-<!-- TODO: プロジェクト名・概要を 1〜2 文で記述してください -->
+codex-dashboard は、MacBook 上で並行稼働する Codex セッションの稼働状態・入力待ち状態を一元把握するためのローカルダッシュボードです。
 
 ## プロジェクト固有の発見事項
 
