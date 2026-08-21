@@ -13,11 +13,11 @@ body:
     validations:
       required: true
   - type: input
-    id: task
+    id: related_item
     attributes:
-      label: 関連 Task
-      description: "Task Issue の番号（#NNN）または Task ID"
-      placeholder: "#11 / TASK-001"
+      label: 関連 Epic / Feature
+      description: "関連する Epic または Feature Issue の番号"
+      placeholder: "#11"
   - type: textarea
     id: problem
     attributes:
@@ -37,6 +37,6 @@ body:
     attributes:
       label: 反映状況
       options:
-        - label: Epic 仕様書・設計に反映済み
+        - label: Epic Context・Spec・Feature Design に反映済み
         - label: 規約ドキュメントに反映済み
         - label: CLAUDE.md に反映済み

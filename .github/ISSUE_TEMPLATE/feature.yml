@@ -1,12 +1,12 @@
 name: Feature
-description: Feature 単位の実装タスク（Epic の子・Story の親）
+description: Epic を構成する、単独でデモ可能な縦断スライス
 title: "[Feature] "
 labels: ["feature"]
 body:
   - type: markdown
     attributes:
       value: |
-        > このテンプレートは `/aidd-feature-design` スキルが自動生成します。
+        > 通常は `/aidd-new-epic` が作成し、`/aidd-epic-design` が設計情報を更新します。
 
   - type: textarea
     id: overview
@@ -19,13 +19,13 @@ body:
   - type: textarea
     id: stories
     attributes:
-      label: Stories
+      label: Stories / Acceptance Criteria
       description: |
-        子 Issue（Story）をタスクリスト形式で列挙する。
-        フォーマット: `- [ ] #Issue番号 タイトル`
+        `docs/spec/` に定義した Story と AC-ID を列挙する。Story は Issue 化しない。
       placeholder: |
-        - [ ] #42 ユーザーがメールアドレスでログインできる
-        - [ ] #43 パスワードリセットができる
+        - S1: 開発者が入力待ちセッションを識別できる
+          - AC-F42-01
+          - AC-F42-02
     validations:
       required: true
 
@@ -37,9 +37,10 @@ body:
         関連ドキュメントのリポジトリ相対パスを列挙する。
         フォーマット: `- 種別: \`パス\``
       placeholder: |
-        - Spec: `docs/features/auth-login.md`
-        - API:  `mocks/api/openapi.yaml` (`/auth/login`)
-        - Domain: `docs/domain/user.md`
+        - Spec: `docs/spec/session-monitoring.md`
+        - Business Context: `docs/business-context/session-monitoring.md`
+        - Design: `docs/features/42-session-monitoring/design.md`
+        - API: `specs/openapi.yaml`
     validations:
       required: false
 
@@ -54,12 +55,24 @@ body:
       required: false
 
   - type: textarea
+    id: risks
+    attributes:
+      label: Risks
+      description: 技術・依存・スコープ上のリスクと対応策
+      placeholder: |
+        | 種別 | 具体的内容 | 対応策 |
+        |------|----------|--------|
+        | 技術 | 状態取得方法が未確定 | 設計前に公式仕様を調査する |
+    validations:
+      required: false
+
+  - type: textarea
     id: done_when
     attributes:
       label: Done When
       value: |
-        - [ ] 全 Story がクローズ済み
-        - [ ] 全 AC に対応するテストが存在する
-        - [ ] E2E シナリオが pass している
+        - [ ] `docs/features/[N]-[slug]/design.md` が存在する
+        - [ ] `specs/` への必要な差分追記が完了している
+        - [ ] 全 AC に Outside-In テストが実装されグリーンである
     validations:
       required: true
