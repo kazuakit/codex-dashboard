@@ -1,0 +1,37 @@
+{
+  "name": "codex-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A local dashboard for observing concurrent Codex sessions on one MacBook.",
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1 --port 3443 --experimental-https --experimental-https-key .certs/localhost-key.pem --experimental-https-cert .certs/localhost.pem",
+    "build": "next build",
+    "lint": "biome check . && markdownlint-cli2 \"README.md\" \"docs/**/*.md\" && taplo fmt --check . && actionlint",
+    "lint:fix": "biome check --write . && markdownlint-cli2 --fix \"README.md\" \"docs/**/*.md\" && taplo fmt .",
+    "typecheck": "next typegen && tsc --noEmit",
+    "test": "vitest run",
+    "test:unit": "vitest run",
+    "verify": "pnpm lint && pnpm typecheck && pnpm test:unit && pnpm build",
+    "cert:local": "mkcert -key-file .certs/localhost-key.pem -cert-file .certs/localhost.pem localhost 127.0.0.1 ::1"
+  },
+  "dependencies": {
+    "@spikestudio-jp/uikit": "0.5.0",
+    "next": "16.3.2",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.10",
+    "@playwright/test": "1.62.1",
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/node": "26.3.0",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.5",
+    "postcss": "8.5.26",
+    "tailwindcss": "4.3.3",
+    "typescript": "7.0.2",
+    "vitest": "4.1.11"
+  },
+  "packageManager": "pnpm@11.22.0"
+}

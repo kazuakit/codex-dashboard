@@ -1,0 +1,15 @@
+// Markdown conventions for project-authored documentation.
+// AIDD framework templates and interactive-answer notes are excluded because
+// this project must not rewrite either source as part of stack setup.
+{
+  "config": {
+    "MD013": false,
+    "MD060": false
+  },
+  "ignores": [
+    "aidd-framework/**",
+    "docs/questions/**",
+    "node_modules/**",
+    ".next/**"
+  ]
+}
