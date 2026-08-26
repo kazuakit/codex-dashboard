@@ -102,6 +102,10 @@ Phase 2以降のスコープは、Phase 1完了レビューでユーザーが再
 | データフロー | ブラウザ → HTTPSのlocalhost Next.jsアプリ → Codex CLIのローカルログ／プロセス情報 → 状態をメモリ上で整形 → ブラウザへ一覧表示。読取り元ログを変更・複製・キャッシュ・送信しない。 |
 | 外部連携 | Codex CLIのローカルログおよびプロセス情報の読取りのみ。外部API・クラウドサービス・Codex Remoteとの連携は行わない。 |
 
+### 関連 ADR
+
+- [ADR-001: Phase 1 のローカル HTTPS とデュアル loopback 実行方式](architecture/adr/ADR-001-local-https-dual-loopback-runtime.md)
+
 ## 10. 技術スタック
 
 | カテゴリ | 採用技術 / バージョン | 選定理由 |
